@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Planetoid dev</title>
+    </head>
+    <body>
+        <canvas id="planetoid" width="800" height="600"></canvas>
+        <script type="text/javascript" src="main.js" ></script>
+        <script type="text/javascript">
+        let planetoid = new Planetoid({
+            canvasSelector: "planetoid"
+        })
+        planetoid.addPlugin(new PlanetoidPlugins.Globe({withGraticule: true}));
+        planetoid.addPlugin(new PlanetoidPlugins.AutoRotate());
+        planetoid.draw()
+        </script>
+    </body>
+</html>

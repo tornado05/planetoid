@@ -1,0 +1,44 @@
+{
+  "name": "planetoid",
+  "version": "0.0.0",
+  "description": "Library to visualise planets",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "node_modules/.bin/webpack",
+    "start:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tornado05/planetoid.git"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "Andrii Serheichuk <sergeichuk.andrew@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tornado05/planetoid/issues"
+  },
+  "homepage": "https://github.com/tornado05/planetoid#readme",
+  "dependencies": {
+    "d3": "^5.4.0",
+    "topojson": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
