@@ -13,7 +13,7 @@
     "url": "git+https://github.com/tornado05/planetoid.git"
   },
   "keywords": [
-    "d3"
+    "d3", "earth", "visualization", "topojson"
   ],
   "author": "Andrii Serheichuk <sergeichuk.andrew@gmail.com>",
   "license": "MIT",
