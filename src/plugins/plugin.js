@@ -25,4 +25,8 @@ export default class PlanetoidPlugin {
     setDataGetter(dataGetter) {
         this.getData = dataGetter
     }
+
+    setLogger(logger) {
+        this.logger = logger
+    }
 }

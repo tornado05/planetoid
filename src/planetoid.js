@@ -50,6 +50,7 @@ export default class Planetoid{
     addPlugin (plugin) {
         plugin.setDataSetter((key, value) => this.data[key] = value)
         plugin.setDataGetter(key => this.data[key])
+        plugin.setLogger(this.logger)
         this.plugins.push(plugin)
     }
 
