@@ -27,7 +27,7 @@ export default class Planetoid{
     _initPlugins () {
         let promises = []
         this.plugins.forEach((plugin) => { 
-            promises.push(plugin.initialize(this.canvas, this.projection))
+            promises.push(plugin.initialize({canvas: this.canvas, projection: this.projection}))
         })
         return promises
     }
@@ -40,7 +40,7 @@ export default class Planetoid{
             this.plugins.forEach((plugin) => { 
                 this.context.save()
                 plugin.beforeDraw()
-                plugin.draw(this.context, this.path, this.projection)
+                plugin.draw({context: this.context, path: this.path, projection: this.projection})
                 plugin.afterDraw()
                 this.context.restore()
             })

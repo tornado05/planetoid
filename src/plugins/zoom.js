@@ -12,7 +12,7 @@ export default class ZoomPlugin extends PlanetoidPlugin{
         this.scaleExtent = options.scaleExtent ? options.scaleExtent : DEFAULT_SCALE_EXTENT
     }
 
-    initialize(canvas, projection) {
+    initialize({canvas, projection}) {
         this.projection = projection
         this.zoom = zoom().scaleExtent(this.scaleExtent)
             .on("zoom", this.onZoom.bind(this))

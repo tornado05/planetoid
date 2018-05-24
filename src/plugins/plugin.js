@@ -4,7 +4,7 @@ export default class PlanetoidPlugin {
     constructor() {
     }
     
-    initialize(canvas, projection) {
+    initialize({canvas, projection}) {
         return Promise.resolve()
     }
 
@@ -12,7 +12,7 @@ export default class PlanetoidPlugin {
 
     }
 
-    draw(context, path, projection) {
+    draw({context, path, projection}) {
 
     }
 

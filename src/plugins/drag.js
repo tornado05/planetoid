@@ -8,7 +8,7 @@ export default class DragPlugin extends PlanetoidPlugin{
         super()        
     }
 
-    initialize (canvas, projection) {
+    initialize ({canvas, projection}) {
         this.projection = projection
         this.drag = drag()
             .on("start", this.onDragStart.bind(this))

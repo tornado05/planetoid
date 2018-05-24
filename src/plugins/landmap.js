@@ -2,12 +2,7 @@ import PlanetoidPlugin from "./plugin"
 import { feature } from "topojson"
 
 export default class LandMapPlugin extends PlanetoidPlugin{
-    constructor(options = {}) {
-        super()        
-        this.data = null                
-    }
-
-    draw(context, path, projection) {
+    draw({context, path}) {
         if (!this.data) {
             const data = this.getData("worldMap")
             this.data = feature(data, data.objects.land)

@@ -18,7 +18,7 @@ export default class GlobePlugin extends PlanetoidPlugin{
         this.strokeColor = this.getColorWithOpacity(graticuleColor, graticuleOpacity)        
     }
 
-    draw(context, path) {
+    draw({context, path}) {
         context.beginPath()
         path.context(context)({type: "Sphere"})
         context.fillStyle = this.fillColor
