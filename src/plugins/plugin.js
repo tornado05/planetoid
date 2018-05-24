@@ -1,3 +1,5 @@
+import { color } from "d3-color"
+
 export default class PlanetoidPlugin {
     constructor() {
     }
@@ -28,5 +30,11 @@ export default class PlanetoidPlugin {
 
     setLogger(logger) {
         this.logger = logger
+    }
+
+    getColorWithOpacity(clr, opacity=1) {
+        let col = color(clr)
+        col.opacity = opacity
+        return col.toString()
     }
 }
