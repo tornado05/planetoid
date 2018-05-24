@@ -11,9 +11,12 @@ This project requires `node >= 7.0.x` to build it.
 ## Plugins
 
 ### dataloader
+
+Plugin loads json data and stores it under the key
+
 ### globe 
 
-Plugin can draw basic Sphere and color. Graticule can be added to sphere.
+Plugin draws basic Sphere and color. Graticule can be added to sphere.
 
 Params:
  - globeColor - string, globe color hash
@@ -23,8 +26,21 @@ Params:
  - graticuleOpacity - float, graticule opacity 0..1
 
 ### landmap
+
+Plugin draws continents according to given json data
+
 ### pin
+
+Plugin draws ping on the globe
+
 ### zoom
+
+Plugin zooms in/out sphere using mouse wheel
+
 ### drag
+
+Plugin to rotate sphere using mouse
+
 ### autorotate
 
+Plugin to autorotate sphere
