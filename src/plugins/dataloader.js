@@ -4,13 +4,20 @@ import { json } from "d3-fetch"
 export default class DataLoaderPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()
-        if (!options.url) {throw "Missing data url" }
-        this.url = options.url        
+        this.dataRequests = options.dataRequests ? options.dataRequests : []
     }
 
     initialize() {
-        return json(this.url).then(data => {
-            this.setData("worldMap", data)
+        let promises = []
+        this.dataRequests.forEach(request => {
+            promises.push(this.loadData(request))
+        })
+        return promises
+    }
+
+    loadData(request) {
+        return json(request.url).then(data => {
+            this.setData(request.key, data)
         })
     }
     
