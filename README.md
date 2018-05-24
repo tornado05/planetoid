@@ -14,6 +14,11 @@ This project requires `node >= 7.0.x` to build it.
 
 Plugin loads json data and stores it under the key
 
+Params:
+ - dataRequests - list of objects `{url: <url>, key: <data key>}`
+
+Data can be accessed to from any plugin using code `this.getData(<data key>)`
+
 ### globe 
 
 Plugin draws basic Sphere and color. Graticule can be added to sphere.
