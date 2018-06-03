@@ -12,6 +12,7 @@ export default class Planetoid{
         this.projection = geoOrthographic().clipAngle(90)
         this.path = geoPath().projection(this.projection)
         this.data = {}
+        this.eventListeners = {}
     }
 
     _getCanvas (canvasId) {
@@ -47,9 +48,24 @@ export default class Planetoid{
         })
     }
 
+    _executeEventListeners(event) {
+        if (this.eventListeners[event.name]) {
+            this.eventListeners[event.name].forEach(listener => listener(event))
+        }
+    }
+
+    _addEventListener(eventName, listener) {
+        if (!this.eventListeners[eventName]) {
+            this.eventListeners[eventName] = []
+        }
+        this.eventListeners[eventName].push(listener)
+    }
+
     addPlugin (plugin) {
         plugin.setDataSetter((key, value) => this.data[key] = value)
         plugin.setDataGetter(key => this.data[key])
+        plugin.setEventListenerSetter((eventName, listener) => this._addEventListener(eventName, listener))
+        plugin.setEventNotifyer(event => this._executeEventListeners(event))
         plugin.setLogger(this.logger)
         this.plugins.push(plugin)
     }

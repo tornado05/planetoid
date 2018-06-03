@@ -32,6 +32,14 @@ export default class PlanetoidPlugin {
         this.logger = logger
     }
 
+    setEventListenerSetter (addEventListener) {
+        this.addEventListener = addEventListener
+    }
+
+    setEventNotifyer (notify) {
+        this.notify = notify
+    }
+
     getColorWithOpacity(clr, opacity=1) {
         let col = color(clr)
         col.opacity = opacity
