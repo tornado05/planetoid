@@ -2,7 +2,8 @@
 
 ## Description
 
-This is a library of modeling planets using d3 and topojson. The main point is to use es6 syntax and to be able to import it into project. 
+This is a library of modeling planets using d3 and topojson. The main point is to use es6 syntax and to be able to import it into project.
+##### NOTE: version < 0.1.x is underdevelopment so please do not use it. 
 
 ## Requirments
 
