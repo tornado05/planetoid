@@ -1,19 +1,32 @@
 import PlanetoidPlugin from "./plugin"
 import { feature } from "topojson"
 
+const DEFAULT_LAND_COLOR = "rgba(0, 255, 0, 0.5)"
+const DEFAULT_BORDER_COLOR = "#0f0"
+const DEFAULT_BORDER_WIDTH = "1px"
+const DEFAULT_DATA_KEY = "worldMap"
+
 export default class LandMapPlugin extends PlanetoidPlugin{
+    constructor(options={}) {
+        super()
+        this.landColor = options.landColor ? options.landColor : DEFAULT_LAND_COLOR
+        this.borderColor = options.borderColor ? options.borderColor : DEFAULT_BORDER_COLOR
+        this.borderWidth = options.borderWidth ? options.borderWidth : DEFAULT_BORDER_WIDTH
+        this.dataKey = options.dataKey ? options.dataKey : DEFAULT_DATA_KEY
+    }
+
     draw({context, path}) {
         if (!this.data) {
-            const data = this.getData("worldMap")
+            const data = this.getData(this.data_key)
             this.data = feature(data, data.objects.land)
         }
         context.beginPath()
         path.context(context)(this.data)
-        context.fillStyle = "rgba(0, 255, 0, 0.5)"
+        context.fillStyle = this.landColor
         context.fill()
 
-        context.strokeStyle = "#0f0"
-        context.lineWidth = "1px"
+        context.strokeStyle = this.borderColor
+        context.lineWidth = this.borderWidth
         context.stroke()
 
         context.closePath()

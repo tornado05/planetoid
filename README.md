@@ -3,11 +3,11 @@
 ## Description
 
 This is a library of modeling planets using d3 and topojson. The main point is to use es6 syntax and to be able to import it into project.
-##### NOTE: version < 0.1.x is underdevelopment so please do not use it. 
+##### NOTE: version < 0.1.x is under development so please do not use it. 
 
 ## Requirments
 
-This project requires `node >= 7.0.x` to build it.
+This project requires `node >= 8.0.x` to build it.
 
 ## Plugins
 
@@ -15,7 +15,7 @@ This project requires `node >= 7.0.x` to build it.
 
 Plugin loads json data and stores it under the key
 
-Params:
+#### Constructor options:
  - dataRequests - list of objects `{url: <url>, key: <data key>}`
 
 Data can be accessed to from any plugin using code `this.getData(<data key>)`
@@ -24,7 +24,7 @@ Data can be accessed to from any plugin using code `this.getData(<data key>)`
 
 Plugin draws basic Sphere and color. Graticule can be added to sphere.
 
-Params:
+#### Constructor options:
  - globeColor - string, globe color hash
  - globeOpacity - float, globe color opacity 0..1
  - withGraticule - bool, if true adds graticule to sphere
@@ -34,6 +34,12 @@ Params:
 ### landmap
 
 Plugin draws continents according to given json data
+
+#### Constructor options:
+ - dataKey - string, name of the key where the data for the plugin is stored
+ - landColor - string, the fill color of the land, for example `yellow`, `rgba(255, 0, 0, 0.5)`, `#f00`, `#ff0000`
+ - borderColor - string, color of the land border, for example `yellow`, `rgba(255, 0, 0, 0.5)`, `#f00`, `#ff0000` 
+ - borderWidth - string, width of the land border in pixels, for eample `1px`, `2px`
 
 ### pin
 
