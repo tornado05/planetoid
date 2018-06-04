@@ -12,7 +12,7 @@ export default class DataLoaderPlugin extends PlanetoidPlugin{
         this.dataRequests.forEach(request => {
             promises.push(this.loadData(request))
         })
-        return promises
+        return Promise.all(promises)
     }
 
     loadData(request) {

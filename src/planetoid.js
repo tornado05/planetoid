@@ -27,8 +27,12 @@ export default class Planetoid{
 
     _initPlugins () {
         let promises = []
-        this.plugins.forEach((plugin) => { 
-            promises.push(plugin.initialize({canvas: this.canvas, projection: this.projection}))
+        this.plugins.forEach((plugin) => {
+            const pluginPromises = plugin.initialize({canvas: this.canvas, projection: this.projection})
+            if (Array.isArray(pluginPromises))
+                promises.concat(pluginPromises)
+            else
+                promises.push(pluginPromises)
         })
         return promises
     }
