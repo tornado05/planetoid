@@ -33,6 +33,10 @@ export default class PinPlugin extends PlanetoidPlugin{
         this.pins.concat(pins)
     }
 
+    removePins() {
+        this.pins = []
+    }
+
     draw({context, path, projection}) {
         this.pins.forEach( pin => this._drawPing(pin, context, path, projection))
     }
