@@ -45,6 +45,21 @@ Plugin draws continents according to given json data
 
 Plugin draws ping on the globe
 
+#### Constructor options:
+ - pins - list, objects that declares pins
+
+ #### Pins objects fields
+ - lng - float, longetude of the point
+ - lat - float latitude of the point
+ - color - string, color of the point
+ - radius - float, raius of the point circle 
+ - precision - int, precision of the point circle
+
+ #### Methods
+  - addPin - adds single ping to map, `.addPin({pin object})`
+  - addPins - adds a list of pins to existing map, `addPins(<{pin object}>)`
+  - removePins - removes all pins from map, `removePins()`
+
 ### zoom
 
 Plugin zooms in/out sphere using mouse wheel
