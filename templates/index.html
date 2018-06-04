@@ -10,8 +10,17 @@
         let planetoid = new Planetoid({
             canvasSelector: "planetoid"
         })
-        planetoid.addPlugin(new PlanetoidPlugins.Globe({withGraticule: true}));
-        planetoid.addPlugin(new PlanetoidPlugins.AutoRotate());
+        planetoid.addPlugin(new PlanetoidPlugins.DataLoader({
+            dataRequests: [
+                { key: "worldMap", url: "world-110m.json"}
+            ]
+        }))
+        planetoid.addPlugin(new PlanetoidPlugins.Globe({withGraticule: true}))
+        planetoid.addPlugin(new PlanetoidPlugins.LandMap())
+        planetoid.addPlugin(new PlanetoidPlugins.Country())
+        planetoid.addPlugin(new PlanetoidPlugins.AutoRotate())
+        planetoid.addPlugin(new PlanetoidPlugins.Drag())
+        planetoid.addPlugin(new PlanetoidPlugins.Zoom())
         planetoid.draw()
         </script>
     </body>

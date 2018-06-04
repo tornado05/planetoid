@@ -48,19 +48,19 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
         let timeDelta = Date.now() - this.startTime
         switch (this.type) {
             case ROTATION_DIRECTIONS.HORISONTAL:
-                if (this.direction == ROTATION_DIRECTIONS.POSITIVE) 
+                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
                    rotation[0] += this.degreePerSec * timeDelta / 1000
                 else
                    rotation[0] -= this.degreePerSec * timeDelta / 1000   
                 break
             case ROTATION_DIRECTIONS.VERTICAL:
-                if (this.direction == ROTATION_DIRECTIONS.POSITIVE) 
+                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
                     rotation[1] += this.degreePerSec * timeDelta / 1000
                 else
                     rotation[1] -= this.degreePerSec * timeDelta / 1000 
                 break
             default:
-                if (this.direction == ROTATION_DIRECTIONS.POSITIVE) {
+                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) {
                     rotation[0] += this.degreePerSec * timeDelta / 1000 
                     rotation[1] += this.degreePerSec * timeDelta / 1000
                 } else {
