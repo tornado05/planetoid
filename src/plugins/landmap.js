@@ -17,7 +17,8 @@ export default class LandMapPlugin extends PlanetoidPlugin{
 
     draw({context, path}) {
         if (!this.data) {
-            const data = this.getData(this.data_key)
+            const data = this.getData(this.dataKey)
+            console.log(data)
             this.data = feature(data, data.objects.land)
         }
         context.beginPath()
