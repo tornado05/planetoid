@@ -21,6 +21,8 @@ export default class PinPlugin extends PlanetoidPlugin{
         context.beginPath()
         path.context(context)(this._getPingForm(pin))
         context.strokeStyle = pin.color ? pin.color : DEFAULT_PIN_COLLOR
+        context.fillStyle = pin.fillColor ? pin.fillColor : DEFAULT_PIN_COLLOR
+        context.fill()
         context.stroke()
         context.closePath()
     }

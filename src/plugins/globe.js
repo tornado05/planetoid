@@ -15,10 +15,22 @@ export default class GlobePlugin extends PlanetoidPlugin{
         this.graticule = options.withGraticule ? geoGraticule() : null
         const graticuleColor = options.graticuleColor ? options.graticuleColor : DEFAULT_GRATICULE_COLOR
         const graticuleOpacity = options.graticuleOpacity ? options.graticuleOpacity : DEFAULT_GRATICULE_OPACITY
-        this.strokeColor = this.getColorWithOpacity(graticuleColor, graticuleOpacity)        
+        this.strokeColor = this.getColorWithOpacity(graticuleColor, graticuleOpacity)
+        this.autoScaleGloble = options.autoScaleGloble ? options.autoScaleGloble : true
+        this.autoCenterGlobe = options.autoCenterGlobe ? options.autoCenterGlobe : true        
     }
 
-    draw({context, path}) {
+    autoCenter (canvas, projection) {
+        projection.translate([canvas.width / 2, canvas.height / 2])
+        this.autoCenterGlobe = false
+    }
+
+    autoScale(canvas, projection) {
+        projection.scale(Math.min(canvas.width, canvas.height) / 2)
+        this.autoScaleGloble = false
+    }
+
+    draw({context, path, canvas, projection}) {
         context.beginPath()
         path.context(context)({type: "Sphere"})
         context.fillStyle = this.fillColor
@@ -29,5 +41,11 @@ export default class GlobePlugin extends PlanetoidPlugin{
             context.stroke()
         }
         context.closePath()
+        if (this.autoCenterGlobe) {
+            this.autoCenter(canvas, projection)
+        }
+        if (this.autoScaleGloble) {
+            this.autoScale(canvas, projection)
+        }
     }
 }

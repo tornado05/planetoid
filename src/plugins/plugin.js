@@ -12,7 +12,7 @@ export default class PlanetoidPlugin {
 
     }
 
-    draw({context, path, projection}) {
+    draw({context, path, projection, canvas}) {
 
     }
 

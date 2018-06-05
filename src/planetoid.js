@@ -45,7 +45,7 @@ export default class Planetoid{
             this.plugins.forEach((plugin) => { 
                 this.context.save()
                 plugin.beforeDraw()
-                plugin.draw({context: this.context, path: this.path, projection: this.projection})
+                plugin.draw({context: this.context, path: this.path, projection: this.projection, canvas: this.canvas})
                 plugin.afterDraw()
                 this.context.restore()
             })
@@ -89,7 +89,7 @@ export default class Planetoid{
     }
 
     onDrawStart () {
-
+        
     }
 
     onDrawStop () {
