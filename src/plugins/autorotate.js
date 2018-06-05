@@ -5,9 +5,12 @@ const BLOCKING_EVENTS = {
     DRAGEND: "dragend"
 }
 
+const HORISONTAL = "horisontal"
+const VERTICAL = "vertical"
+
 const ROTATION_TYPES = {
-    HORISONTAL: "horisontal",
-    VERTICAL: "vertical"
+    HORISONTAL,
+    VERTICAL
 }
 
 const ROTATION_DIRECTIONS = {
@@ -38,22 +41,22 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
 
     draw({projection}) {
         if (this.enabled) {
-            let rotation = projection.rotate()
-            projection.rotate(this._calculateRotation(rotation))
+            projection.rotate(this._calculateRotation(projection.rotate()))
         }
         this.startTime = Date.now()
     }
 
     _calculateRotation(rotation) {
         let timeDelta = Date.now() - this.startTime
+        console.log(this.type, rotation)
         switch (this.type) {
-            case ROTATION_DIRECTIONS.HORISONTAL:
+            case HORISONTAL:
                 if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
                    rotation[0] += this.degreePerSec * timeDelta / 1000
                 else
                    rotation[0] -= this.degreePerSec * timeDelta / 1000   
                 break
-            case ROTATION_DIRECTIONS.VERTICAL:
+            case VERTICAL:
                 if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
                     rotation[1] += this.degreePerSec * timeDelta / 1000
                 else
