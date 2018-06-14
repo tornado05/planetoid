@@ -4,7 +4,7 @@ export default class PlanetoidPlugin {
     constructor() {
     }
     
-    initialize({canvas, projection}) {
+    initialize() {
         return Promise.resolve()
     }
 
@@ -12,7 +12,7 @@ export default class PlanetoidPlugin {
 
     }
 
-    draw({context, path, projection, canvas}) {
+    draw() {
 
     }
 
@@ -20,24 +20,12 @@ export default class PlanetoidPlugin {
 
     }
 
-    setDataSetter(dataSetter) {
-        this.setData = dataSetter
-    }
-
-    setDataGetter(dataGetter) {
-        this.getData = dataGetter
-    }
-
-    setLogger(logger) {
-        this.logger = logger
-    }
-
-    setEventListenerSetter (addEventListener) {
-        this.addEventListener = addEventListener
-    }
-
-    setEventNotifyer (notify) {
+    injectMethods ({notify, addEventListener, logger, getData, setData}) {
         this.notify = notify
+        this.addEventListener = addEventListener
+        this.logger = logger
+        this.getData = getData
+        this.setData = setData
     }
 
     getColorWithOpacity(clr, opacity=1) {

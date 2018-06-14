@@ -33,9 +33,9 @@ export default class CountryPlugin extends PlanetoidPlugin{
 
     _getBorderTypeFunction() {
         switch(this.type) {
-            case BORDER_TYPES.INTERNAL: return (a, b) =>  a.id !== b.id
-            case BORDER_TYPES.EXTERNAL: return (a, b) =>  a.id === b.id
-            case BORDER_TYPES.BOTH: return () => true
+        case BORDER_TYPES.INTERNAL: return (a, b) =>  a.id !== b.id
+        case BORDER_TYPES.EXTERNAL: return (a, b) =>  a.id === b.id
+        case BORDER_TYPES.BOTH: return () => true
         }
     }
 }
