@@ -48,28 +48,27 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
 
     _calculateRotation(rotation) {
         let timeDelta = Date.now() - this.startTime
-        console.log(this.type, rotation)
         switch (this.type) {
-            case HORISONTAL:
-                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
-                   rotation[0] += this.degreePerSec * timeDelta / 1000
-                else
-                   rotation[0] -= this.degreePerSec * timeDelta / 1000   
-                break
-            case VERTICAL:
-                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
-                    rotation[1] += this.degreePerSec * timeDelta / 1000
-                else
-                    rotation[1] -= this.degreePerSec * timeDelta / 1000 
-                break
-            default:
-                if (this.direction === ROTATION_DIRECTIONS.POSITIVE) {
-                    rotation[0] += this.degreePerSec * timeDelta / 1000 
-                    rotation[1] += this.degreePerSec * timeDelta / 1000
-                } else {
-                    rotation[0] -= this.degreePerSec * timeDelta / 1000 
-                    rotation[1] -= this.degreePerSec * timeDelta / 1000 
-                }
+        case HORISONTAL:
+            if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
+                rotation[0] += this.degreePerSec * timeDelta / 1000
+            else
+                rotation[0] -= this.degreePerSec * timeDelta / 1000   
+            break
+        case VERTICAL:
+            if (this.direction === ROTATION_DIRECTIONS.POSITIVE) 
+                rotation[1] += this.degreePerSec * timeDelta / 1000
+            else
+                rotation[1] -= this.degreePerSec * timeDelta / 1000 
+            break
+        default:
+            if (this.direction === ROTATION_DIRECTIONS.POSITIVE) {
+                rotation[0] += this.degreePerSec * timeDelta / 1000 
+                rotation[1] += this.degreePerSec * timeDelta / 1000
+            } else {
+                rotation[0] -= this.degreePerSec * timeDelta / 1000 
+                rotation[1] -= this.degreePerSec * timeDelta / 1000 
+            }
         }
         return rotation
     }

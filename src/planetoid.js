@@ -2,6 +2,7 @@ import { timer } from "d3"
 import { geoOrthographic, geoPath } from "d3-geo"
 import { LOG_MODES } from "./constants"
 import Logger from "./log"
+import { Events } from "./events"
 
 export default class Planetoid{
     constructor(options={}) {
@@ -38,18 +39,17 @@ export default class Planetoid{
     }
 
     _runDrawLoop () {
-        timer(() => {
-            this.logger.log("Draw iteration started")
+        timer(() => {            
+            this.notify({name: Events.BEFORE_DRAW_ITERATION})
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)            
-            this.plugins.forEach((plugin) => { 
-                console.log("Plugin name", plugin.name)
+            this.plugins.forEach((plugin) => {
                 this.context.save()
                 plugin.beforeDraw()
                 plugin.draw({context: this.context, path: this.path, projection: this.projection, canvas: this.canvas})
                 plugin.afterDraw()
                 this.context.restore()
             })
-            this.logger.log("Draw iteration finished")
+            this.notify({name: Events.AFTER_DRAW_ITERATION})
         })
     }
 
@@ -79,6 +79,7 @@ export default class Planetoid{
 
     draw () {
         Promise.all(this._initPlugins()).then(() => {
+            this.notify({name: Events.DRAW_LOOP_START})
             this._runDrawLoop()
         }).catch(error => {
             this.logger.log(error, LOG_MODES.ERROR)
