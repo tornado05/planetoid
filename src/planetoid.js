@@ -39,7 +39,7 @@ export default class Planetoid{
     }
 
     _runDrawLoop () {
-        timer(() => {            
+        this.timer = timer(() => {            
             this.notify({name: Events.BEFORE_DRAW_ITERATION})
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)            
             this.plugins.forEach((plugin) => {
@@ -85,4 +85,8 @@ export default class Planetoid{
             this.logger.log(error, LOG_MODES.ERROR)
         })        
     }
+
+    stopDraw () {
+        this.timer.stop()
+    }    
 }
