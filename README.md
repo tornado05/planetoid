@@ -39,6 +39,21 @@ Plugin is a class inherited from `PlanetoidPlugin`.
  - draw - this method should contain code that is visualizing data
  - afterDraw -this method is called each time after draw
 
+#### Plugin example: 
+```
+import PlanetoidPlugin from "./plugin"
+
+export default class FooPlugin extends PlanetoidPlugin{
+    constructor(options={}) {
+        super()
+    }
+
+    draw() {
+      
+    }
+}
+```
+
 ### dataloader
 
 Plugin loads json data and stores it under the key
