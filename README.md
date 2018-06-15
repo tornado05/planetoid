@@ -14,10 +14,10 @@ This project requires `node >= 8.0.x` to build it.
 Overall structure is core part, class `Planetoid`. The module runs draw loop, which is executing plugins that are drawing the data. Core contains observer to comunicate between plugins using events(NOTE: event object should include field `name`).
 
 ### Project parts:
- - Core - file `planetoid.js`
- - Logger - file `log.js`
- - Constants - file `constants.js`
- - Events - file `events.js`
+ - Core - file `planetoid.js`, includes class Planetoid
+ - Logger - file `log.js`, includes logger class
+ - Constants - file `constants.js`, includes log types and etc 
+ - Events - file `events.js`, includes events
 
 ## Core
 
@@ -90,12 +90,17 @@ Plugin draws ping on the globe
 
 ### zoom
 
-Plugin zooms in/out sphere using mouse wheel
+Plugin zooms in/out sphere using mouse wheel.
 
 ### drag
 
-Plugin to rotate sphere using mouse
+Plugin to rotate sphere using mouse.
 
 ### autorotate
 
-Plugin to autorotate sphere
+Plugin to autorotate sphere. This plugin is syncronized with drag plugin, when drag is executed autorotate is not working.
+
+### Constructor options:
+ - degreePerSec - int, number of degrees per second of rotation
+ - type - string, `horisontal`|`vertical`
+ - direction -string, `positive`(left->right)|`negative`(right->left)
