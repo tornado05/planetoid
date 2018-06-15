@@ -86,7 +86,7 @@ export default class Planetoid{
         })        
     }
 
-    stopDraw () {
+    stop () {
         this.timer.stop()
     }    
 }
