@@ -2,14 +2,42 @@
 
 ## Description
 
-This is a library of modeling planets using d3 and topojson. The main point is to use es6 syntax and to be able to import it into project.
+This is a library of modeling planets using d3 and topojson, written using es6. The main point is to use es6 syntax and to be able to import it into project.
 ##### NOTE: version < 0.1.x is under development so please do not use it. 
 
 ## Requirments
 
 This project requires `node >= 8.0.x` to build it.
 
+## Architecture
+
+Overall structure is core part, class `Planetoid`. The module runs draw loop, which is executing plugins that are drawing the data. Core contains observer to comunicate between plugins using events(NOTE: event object should include field `name`).
+
+### Project parts:
+ - Core - file `planetoid.js`
+ - Logger - file `log.js`
+ - Constants - file `constants.js`
+ - Events - file `events.js`
+
+## Core
+
+### Methods:
+ - draw - starts draw loop, `.draw()`
+ - stop - stops draw loop, `.stop()`
+ - addEventListener - adds event listener, `.addEventListener(<event name>, <callback>)`
+ - notify - triggers event listeners, `.notify(<event object>)`, `{name: <event name>, ...}`
+
 ## Plugins
+
+### General plugin structure
+
+Plugin is a class inherited from `PlanetoidPlugin`.
+
+#### Lifecycle:
+ - initialize - this method is called once, before main draw loop is started
+ - beforeDraw - this method is called each time before draw
+ - draw - this method should contain code that is visualizing data
+ - afterDraw -this method is called each time after draw
 
 ### dataloader
 
