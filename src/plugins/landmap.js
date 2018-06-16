@@ -5,6 +5,7 @@ const DEFAULT_LAND_COLOR = "rgba(0, 255, 0, 0.5)"
 const DEFAULT_BORDER_COLOR = "#0f0"
 const DEFAULT_BORDER_WIDTH = "1px"
 const DEFAULT_DATA_KEY = "worldMap"
+const PLUGIN_NAME = "lanmap"
 
 export default class LandMapPlugin extends PlanetoidPlugin{
     constructor(options={}) {
@@ -13,6 +14,7 @@ export default class LandMapPlugin extends PlanetoidPlugin{
         this.borderColor = options.borderColor ? options.borderColor : DEFAULT_BORDER_COLOR
         this.borderWidth = options.borderWidth ? options.borderWidth : DEFAULT_BORDER_WIDTH
         this.dataKey = options.dataKey ? options.dataKey : DEFAULT_DATA_KEY
+        this.name = PLUGIN_NAME
     }
 
     draw({context, path}) {

@@ -5,10 +5,13 @@ const DEFAULT_PIN_RADIUS = 1
 const DEFAULT_PIN_PRECISION = 3
 const DEFAULT_PIN_COLLOR = "yellow"
 
+const PLUGIN_NAME = "pin"
+
 export default class PinPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()        
         this.pins = options.pins ? options.pins : []
+        this.name = PLUGIN_NAME
     }
 
     _getPingForm (pin) {

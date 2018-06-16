@@ -22,6 +22,8 @@ Overall structure is core part, class `Planetoid`. The module runs draw loop, wh
 ## Core
 
 ### Methods:
+ - addPlugin - adds plugin to planetoid, `.addPlugin(new PlanetoidPlugin())`
+ - getPlugin - gets plugin from App instance, `getPlugin(<plugin name>)`
  - draw - starts draw loop, `.draw()`
  - stop - stops draw loop, `.stop()`
  - addEventListener - adds event listener, `.addEventListener(<event name>, <callback>)`
@@ -31,7 +33,7 @@ Overall structure is core part, class `Planetoid`. The module runs draw loop, wh
 
 ### General plugin structure
 
-Plugin is a class inherited from `PlanetoidPlugin`.
+Plugin is a class inherited from `PlanetoidPlugin`. Plugin should contain name.
 
 #### Lifecycle:
  - initialize - this method is called once, before main draw loop is started
@@ -43,9 +45,12 @@ Plugin is a class inherited from `PlanetoidPlugin`.
 ```
 import PlanetoidPlugin from "./plugin"
 
+const PLUGIN_NAME = "SomePlugin"
+
 export default class FooPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()
+        this.name = PLUGIN_NAME
     }
 
     draw() {

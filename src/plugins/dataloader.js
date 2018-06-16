@@ -1,10 +1,13 @@
 import PlanetoidPlugin from "./plugin"
 import { json } from "d3-fetch"
 
+const PLUGIN_NAME = "dataloader"
+
 export default class DataLoaderPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()
         this.dataRequests = options.dataRequests ? options.dataRequests : []
+        this.name = PLUGIN_NAME
     }
 
     initialize() {

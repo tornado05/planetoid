@@ -1,5 +1,7 @@
 import PlanetoidPlugin from "./plugin"
 
+const PLUGIN_NAME = "autorotate"
+
 const BLOCKING_EVENTS = {
     DRAGSTART: "dragstart",
     DRAGEND: "dragend"
@@ -31,6 +33,7 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
         this.direction = options.direction ? options.direction : DEFAULT_ROTATION_DIRECTION
         this.enabled = true
         this.startTime = Date.now()
+        this.name = PLUGIN_NAME
     }
 
     initialize({canvas, projection}) {

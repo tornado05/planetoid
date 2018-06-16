@@ -5,6 +5,7 @@ const DEFAULT_GLOBE_COLOR = "#68d2e8"
 const DEFAULT_GLOBE_OPACITY = 1
 const DEFAULT_GRATICULE_COLOR = "#ff7777"
 const DEFAULT_GRATICULE_OPACITY = 0.5
+const PLUGIN_NAME = "globe"
 
 export default class GlobePlugin extends PlanetoidPlugin{
     constructor(options={}) {
@@ -17,7 +18,8 @@ export default class GlobePlugin extends PlanetoidPlugin{
         const graticuleOpacity = options.graticuleOpacity ? options.graticuleOpacity : DEFAULT_GRATICULE_OPACITY
         this.strokeColor = this.getColorWithOpacity(graticuleColor, graticuleOpacity)
         this.autoScaleGloble = options.autoScaleGloble ? options.autoScaleGloble : true
-        this.autoCenterGlobe = options.autoCenterGlobe ? options.autoCenterGlobe : true        
+        this.autoCenterGlobe = options.autoCenterGlobe ? options.autoCenterGlobe : true
+        this.name = PLUGIN_NAME     
     }
 
     autoCenter (canvas, projection) {

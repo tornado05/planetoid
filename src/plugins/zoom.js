@@ -5,11 +5,14 @@ import { select, event } from "d3-selection"
 const DEFAULT_INITIAL_SCALE = 1
 const DEFAULT_SCALE_EXTENT = [200, 2000]
 
+const PLUGIN_NAME = "zoom"
+
 export default class ZoomPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()
         this.initialScale = options.initialScale ? options.initialScale : DEFAULT_INITIAL_SCALE        
         this.scaleExtent = options.scaleExtent ? options.scaleExtent : DEFAULT_SCALE_EXTENT
+        this.name = PLUGIN_NAME
     }
 
     initialize({canvas, projection}) {

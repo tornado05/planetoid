@@ -77,6 +77,11 @@ export default class Planetoid{
         this.plugins.push(plugin)
     }
 
+    getPlugin (name) {
+        const plugins = this.plugins.filter(plugin => plugin.name === name)
+        return plugins && plugins.length > 0 ? plugins[0] : null
+    }
+
     draw () {
         Promise.all(this._initPlugins()).then(() => {
             this.notify({name: Events.DRAW_LOOP_START})

@@ -11,12 +11,15 @@ const DEFAULT_BORDER_TYPE = BORDER_TYPES.INTERNAL
 
 const DEFAULT_BORDER_COLOR = "red"
 
+const PLUGIN_NAME = "country"
+
 export default class CountryPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()
         this.dataKey = options.dataKey ? options.dataKey : DEFAULT_DATA_KEY
         this.type = options.type ? options.type : DEFAULT_BORDER_TYPE
         this.borderColor = options.borderColor ? options.borderColor : DEFAULT_BORDER_COLOR
+        this.name = PLUGIN_NAME
     }
 
     draw({context, path}) {
