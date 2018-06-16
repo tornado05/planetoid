@@ -20,7 +20,7 @@ export default class PinPlugin extends PlanetoidPlugin{
         return geoCircle().center([pin.lng, pin.lat]).radius(radius).precision(precision)()
     }
 
-    _drawPing(pin, context, path, projection) {
+    _drawPing(pin, context, path) {
         context.beginPath()
         path.context(context)(this._getPingForm(pin))
         context.strokeStyle = pin.color ? pin.color : DEFAULT_PIN_COLLOR
@@ -42,7 +42,7 @@ export default class PinPlugin extends PlanetoidPlugin{
         this.pins = []
     }
 
-    draw({context, path, projection}) {
-        this.pins.forEach( pin => this._drawPing(pin, context, path, projection))
+    draw({context, path}) {
+        this.pins.forEach( pin => this._drawPing(pin, context, path))
     }
 }
