@@ -8,7 +8,7 @@ export default class Planetoid{
     constructor(options={}) {
         this.plugins = []
         this.logger = new Logger(options.debugMode ? LOG_MODES.DEBUG : LOG_MODES.INFO)
-        this.canvas = this._getCanvas(options.canvasSelector)
+        this.canvas = this._prepareCanvas(options.canvasSelector)
         this.context = this.canvas.getContext("2d")  
         this.projection = geoOrthographic().clipAngle(90)
         this.path = geoPath().projection(this.projection)
@@ -16,7 +16,7 @@ export default class Planetoid{
         this.eventListeners = {}
     }
 
-    _getCanvas (canvasId) {
+    _prepareCanvas (canvasId) {
         const canvas = document.getElementById(canvasId)
         if (!canvas) {
             const msg = `Canvas element with selector ${canvasId} not found`

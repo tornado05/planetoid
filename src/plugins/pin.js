@@ -6,11 +6,13 @@ const DEFAULT_PIN_PRECISION = 3
 const DEFAULT_PIN_COLLOR = "yellow"
 
 const PLUGIN_NAME = "pin"
+const DEFAULT_DATA_KEY = "pins"
 
 export default class PinPlugin extends PlanetoidPlugin{
     constructor(options={}) {
         super()        
         this.pins = options.pins ? options.pins : []
+        this.dataKey = options.dataKey ? options.dataKey : DEFAULT_DATA_KEY
         this.name = PLUGIN_NAME
     }
 

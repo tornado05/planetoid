@@ -1,4 +1,5 @@
 import PlanetoidPlugin from "./plugin"
+import { Events } from "./../events"
 import { geoGraticule } from "d3-geo"
 
 const DEFAULT_GLOBE_COLOR = "#68d2e8"
@@ -20,6 +21,13 @@ export default class GlobePlugin extends PlanetoidPlugin{
         this.autoScaleGloble = options.autoScaleGloble ? options.autoScaleGloble : true
         this.autoCenterGlobe = options.autoCenterGlobe ? options.autoCenterGlobe : true
         this.name = PLUGIN_NAME     
+    }
+
+    initialize() {
+        this.addEventListener(Events.CANVAS_RESIZE, () => {
+            this.autoCenterGlobe = true
+            this.autoScaleGloble = true
+        }) 
     }
 
     autoCenter (canvas, projection) {
