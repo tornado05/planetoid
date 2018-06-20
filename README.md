@@ -95,6 +95,7 @@ Plugin draws ping on the globe
 
 #### Constructor options:
  - pins - list, objects that declares pins
+ - dataKey - string, name of the key to extract data from common data storage
 
  #### Pins objects fields
  - lng - float, longetude of the point
