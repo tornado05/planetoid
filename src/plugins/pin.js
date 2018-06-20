@@ -21,7 +21,8 @@ export default class PinPlugin extends PlanetoidPlugin{
         this.addEventListener(Events.DRAW_LOOP_START, () => {
             if (this.pins.length === 0) {
                 let pinsData = this.getData(this.dataKey)
-            }   this.pins = pinsData ? pinsData : []
+                this.pins = pinsData ? pinsData : []
+            }   
         })
     }
 
