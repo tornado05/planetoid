@@ -1,5 +1,6 @@
 import PlanetoidPlugin from "./plugin"
 import { geoCircle } from "d3-geo"
+import { Events } from "./../events"
 
 const DEFAULT_PIN_RADIUS = 1
 const DEFAULT_PIN_PRECISION = 3
@@ -14,6 +15,14 @@ export default class PinPlugin extends PlanetoidPlugin{
         this.pins = options.pins ? options.pins : []
         this.dataKey = options.dataKey ? options.dataKey : DEFAULT_DATA_KEY
         this.name = PLUGIN_NAME
+    }
+
+    initialize() {
+        this.addEventListener(Events.DRAW_LOOP_START, () => {
+            if (this.pins.length === 0) {
+                let pinsData = this.getData(this.dataKey)
+            }   this.pins = pinsData ? pinsData : []
+        })
     }
 
     _getPingForm (pin) {
