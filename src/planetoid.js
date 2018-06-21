@@ -6,12 +6,13 @@ import { Events } from "./events"
 
 export default class Planetoid{
     constructor(options={}) {
-        this.plugins = []
+        this.dataExtractor = options.dataExtractor ? options.dataExtractor : null
         this.logger = new Logger(options.debugMode ? LOG_MODES.DEBUG : LOG_MODES.INFO)
         this.canvas = this._prepareCanvas(options.canvasSelector)
         this.context = this.canvas.getContext("2d")  
         this.projection = geoOrthographic().clipAngle(90)
         this.path = geoPath().projection(this.projection)
+        this.plugins = []
         this.data = {}
         this.eventListeners = {}
     }
@@ -66,14 +67,18 @@ export default class Planetoid{
         }
     }
 
-    addPlugin (plugin) {        
-        plugin.injectMethods({
-            setData: (key, value) => this.data[key] = value,
-            getData: key => this.data[key],
+    addPlugin (plugin) {
+        const dataExtractor = this.dataExtractor ? key => this.dataExtractor(key) : key => this.data[key]        
+        const methods = {
+            getData: dataExtractor,
             addEventListener: (eventName, listener) => this.addEventListener(eventName, listener),
             notify: event => this.notify(event),
             logger: this.logger
-        })
+        }
+        if (!this.dataExtractor) {
+            methods["setData"] = (key, value) => this.data[key] = value
+        }
+        plugin.injectMethods(methods)
         this.plugins.push(plugin)
     }
 

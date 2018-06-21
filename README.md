@@ -21,6 +21,10 @@ Overall structure is core part, class `Planetoid`. The module runs draw loop, wh
 
 ## Core
 
+#### Constructor options
+ - canvasSelector - string, id of `canvas` element
+ - dataExtractor - function, function that can access data
+
 ### Methods:
  - addPlugin - adds plugin to planetoid, `.addPlugin(new PlanetoidPlugin())`
  - getPlugin - gets plugin from App instance, `getPlugin(<plugin name>)`
