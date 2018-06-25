@@ -14,7 +14,7 @@ const DRAG_EVENTS = {
     DRAG: "drag"
 }
 
-const PLUGIN_NAME = "drag"
+const PLUGIN_NAME = "dragPlugin"
 
 export default class DragPlugin extends PlanetoidPlugin{
     constructor(options={}) {

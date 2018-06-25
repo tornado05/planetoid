@@ -1,6 +1,6 @@
 import PlanetoidPlugin from "./plugin"
 
-const PLUGIN_NAME = "autorotate"
+const PLUGIN_NAME = "autorotatePlugin"
 
 const BLOCKING_EVENTS = {
     DRAGSTART: "dragstart",

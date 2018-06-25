@@ -11,7 +11,7 @@ const DEFAULT_BORDER_TYPE = BORDER_TYPES.INTERNAL
 
 const DEFAULT_BORDER_COLOR = "red"
 
-const PLUGIN_NAME = "country"
+const PLUGIN_NAME = "countryPlugin"
 
 export default class CountryPlugin extends PlanetoidPlugin{
     constructor(options={}) {

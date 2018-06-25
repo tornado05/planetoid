@@ -6,7 +6,7 @@ const DEFAULT_PIN_RADIUS = 1
 const DEFAULT_PIN_PRECISION = 3
 const DEFAULT_PIN_COLLOR = "yellow"
 
-const PLUGIN_NAME = "pin"
+const PLUGIN_NAME = "pinPlugin"
 const DEFAULT_DATA_KEY = "pins"
 
 export default class PinPlugin extends PlanetoidPlugin{
@@ -52,6 +52,10 @@ export default class PinPlugin extends PlanetoidPlugin{
 
     removePins() {
         this.pins = []
+    }
+
+    replacePins(pins) {
+        this.pins = pins
     }
 
     draw({context, path}) {
