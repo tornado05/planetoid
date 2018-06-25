@@ -1,6 +1,6 @@
 {
   "name": "planetoid",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Library to visualise planets",
   "main": "index.js",
   "scripts": {

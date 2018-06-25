@@ -47,7 +47,7 @@ export default class PinPlugin extends PlanetoidPlugin{
     }
 
     addPins(pins) {
-        this.pins.concat(pins)
+        this.pins = this.pins.concat(pins)
     }
 
     removePins() {
