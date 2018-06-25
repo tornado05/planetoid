@@ -5,7 +5,7 @@ import { select, event } from "d3-selection"
 const DEFAULT_INITIAL_SCALE = 1
 const DEFAULT_SCALE_EXTENT = [200, 2000]
 
-const PLUGIN_NAME = "zoom"
+const PLUGIN_NAME = "zoomPlugin"
 
 export default class ZoomPlugin extends PlanetoidPlugin{
     constructor(options={}) {

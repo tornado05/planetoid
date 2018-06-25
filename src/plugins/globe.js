@@ -6,7 +6,7 @@ const DEFAULT_GLOBE_COLOR = "#68d2e8"
 const DEFAULT_GLOBE_OPACITY = 1
 const DEFAULT_GRATICULE_COLOR = "#ff7777"
 const DEFAULT_GRATICULE_OPACITY = 0.5
-const PLUGIN_NAME = "globe"
+const PLUGIN_NAME = "globePlugin"
 
 export default class GlobePlugin extends PlanetoidPlugin{
     constructor(options={}) {
