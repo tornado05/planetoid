@@ -45,6 +45,11 @@ export default class Planetoid {
             const y = event.layerY || event.offsetY
             this.notify({name: Events.MOUSEMOVE, x, y})
         })
+        select(this.canvas).on("click", () => {
+            const x = event.layerX || event.offsetX 
+            const y = event.layerY || event.offsetY
+            this.notify({name: Events.MOUSEMOVE, x, y})
+        })
         this.timer = timer(() => {            
             this.notify({name: Events.BEFORE_DRAW_ITERATION})
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)            
