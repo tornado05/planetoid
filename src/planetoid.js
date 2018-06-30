@@ -39,16 +39,20 @@ export default class Planetoid {
         return promises
     }
 
+    _extractMouseCordsFromEvent (event) {
+        const x = event.layerX || event.offsetX 
+        const y = event.layerY || event.offsetY
+        return {x, y}
+    }
+
     _runDrawLoop () {
         select(this.canvas).on("mousemove", () => {
-            const x = event.layerX || event.offsetX 
-            const y = event.layerY || event.offsetY
+            const {x, y} = this._extractMouseCordsFromEvent(event)
             this.notify({name: Events.MOUSEMOVE, x, y})
         })
         select(this.canvas).on("click", () => {
-            const x = event.layerX || event.offsetX 
-            const y = event.layerY || event.offsetY
-            this.notify({name: Events.MOUSEMOVE, x, y})
+            const {x, y} = this._extractMouseCordsFromEvent(event)
+            this.notify({name: Events.CLICK, x, y})
         })
         this.timer = timer(() => {            
             this.notify({name: Events.BEFORE_DRAW_ITERATION})
