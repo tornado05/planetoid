@@ -1,10 +1,10 @@
 {
   "name": "planetoid",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Library to visualise planets",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "NODE_ENV=test jest",
     "build": "node_modules/.bin/webpack",
     "start:dev": "webpack-dev-server"
   },
@@ -30,18 +30,37 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.2.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
+    "jest": "^23.2.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "mini-css-extract-plugin": "^0.4.0",
+    "mini-css-extract-plugin": "^0.4.0",    
+    "regenerator-runtime": "^0.12.0",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.8.2",
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }

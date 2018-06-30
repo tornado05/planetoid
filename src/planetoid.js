@@ -1,10 +1,10 @@
-import { timer } from "d3"
+import { timer, select, event } from "d3"
 import { geoOrthographic, geoPath } from "d3-geo"
 import { LOG_MODES } from "./constants"
 import Logger from "./log"
 import { Events } from "./events"
 
-export default class Planetoid{
+export default class Planetoid {
     constructor(options={}) {
         this.dataExtractor = options.dataExtractor ? options.dataExtractor : null
         this.logger = new Logger(options.debugMode ? LOG_MODES.DEBUG : LOG_MODES.INFO)
@@ -40,6 +40,11 @@ export default class Planetoid{
     }
 
     _runDrawLoop () {
+        select(this.canvas).on("mousemove", () => {
+            const x = event.layerX || event.offsetX 
+            const y = event.layerY || event.offsetY
+            this.notify({name: Events.MOUSEMOVE, x, y})
+        })
         this.timer = timer(() => {            
             this.notify({name: Events.BEFORE_DRAW_ITERATION})
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)            

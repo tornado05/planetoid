@@ -33,6 +33,13 @@ Overall structure is core part, class `Planetoid`. The module runs draw loop, wh
  - addEventListener - adds event listener, `.addEventListener(<event name>, <callback>)`
  - notify - triggers event listeners, `.notify(<event object>)`, `{name: <event name>, ...}`
 
+### Events:
+ - drawLoopStart - fires when draw loop started
+ - beforeDrawIteration - fires each time before draw iteration
+ - afterDrawIteration -  fires each time after draw iteration
+ - canvasResize - fires when canvas should be resized by outer app, like `notify({name: "canvasResize"})`
+ - mouseMove - fires on each mouse move over canvas
+
 ## Plugins
 
 ### General plugin structure
