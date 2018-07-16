@@ -32,21 +32,34 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
         this.type = options.type ? options.type : DEFAULT_ROTATION_TYPE
         this.direction = options.direction ? options.direction : DEFAULT_ROTATION_DIRECTION
         this.enabled = true
+        this.shouldRotate = true
         this.startTime = Date.now()
         this.name = PLUGIN_NAME
     }
 
     initialize({canvas, projection}) {
-        this.addEventListener(BLOCKING_EVENTS.DRAGSTART, () => this.enabled = false)
-        this.addEventListener(BLOCKING_EVENTS.DRAGEND, () => this.enabled = true)
+        this.addEventListener(BLOCKING_EVENTS.DRAGSTART, () => this.shouldRotate = false)
+        this.addEventListener(BLOCKING_EVENTS.DRAGEND, () => this.shouldRotate = this.enabled)
         return super.initialize({canvas, projection})
     }
 
     draw({projection}) {
-        if (this.enabled) {
+        if (this.shouldRotate) {
             projection.rotate(this._calculateRotation(projection.rotate()))
         }
         this.startTime = Date.now()
+    }
+
+    start() {
+        this.enabled = true
+    }
+
+    stop() {
+        this.enabled = false
+    }
+
+    isRotatiung () {
+        return this.shouldRotate
     }
 
     _calculateRotation(rotation) {

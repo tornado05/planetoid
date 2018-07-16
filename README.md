@@ -133,6 +133,11 @@ Plugin to rotate sphere using mouse.
 
 Plugin to autorotate sphere. This plugin is syncronized with drag plugin, when drag is executed autorotate is not working.
 
+#### Methods
+ - start - enables globe rotation, `.start()`
+ - stop - disables globe rotation, `.stop()`
+ - isRotating - returns Boolean weather globe is rotating, `.isRotating()`
+
 ### Constructor options:
  - degreePerSec - int, number of degrees per second of rotation
  - type - string, `horisontal`|`vertical`
