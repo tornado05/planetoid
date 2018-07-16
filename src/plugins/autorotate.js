@@ -44,7 +44,7 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
     }
 
     draw({projection}) {
-        if (this.shouldRotate) {
+        if (this.shouldRotate && this.enabled) {
             projection.rotate(this._calculateRotation(projection.rotate()))
         }
         this.startTime = Date.now()
