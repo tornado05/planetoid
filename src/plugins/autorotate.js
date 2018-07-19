@@ -60,7 +60,7 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
     }
 
     isRotating () {
-        return this.shouldRotate
+        return this.shouldRotate && this.enabled
     }
 
     _calculateRotation(rotation) {
