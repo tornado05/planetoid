@@ -1,3 +1,5 @@
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin')
+
 module.exports = {
     module: {
         stats: {
@@ -43,15 +45,16 @@ module.exports = {
     },
 
     plugins: [
-        new UglifyJSPlugin(),
+        new UglifyJSPlugin({ compress: { warnnings: true } }),
         new MiniCssExtractPlugin({ filename: "style.css" }),
-        new CopyWebpackPlugin([{ from: 'templates/*.html', to: 'dist' }])
+        new CopyWebpackPlugin([{ from: 'templates/*.html', to: 'dist' }]),
+        new UnminifiedWebpackPlugin()
     ],
     entry: 0,
 
     output: {
-        filename: "[name].[chunkhash].js",
-        chunkFilename: "[name].[chunkhash].js",
+        filename: "[name].min.[chunkhash].js",
+        chunkFilename: "[name].min.[chunkhash].js",
         path: path.resolve(__dirname, "dist")
     },
 

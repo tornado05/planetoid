@@ -2,7 +2,7 @@ import PlanetoidPlugin from "./plugin"
 import { zoom } from "d3-zoom"
 import { select, event } from "d3-selection"
 import { calculateInitialScale } from "./../util"
-import { CANVAS_RESIZE } from "./../events"
+import { Events } from "./../events"
 
 const DEFAULT_INITIAL_SCALE = 1
 const DEFAULT_SCALE_EXTENT = [200, 2000]
@@ -23,7 +23,7 @@ export default class ZoomPlugin extends PlanetoidPlugin{
         this.zoom = zoom().scaleExtent(this.scaleExtent)
             .on("zoom", this.onZoom.bind(this))
         select(canvas).call(this.zoom)
-        this.addEventListener(CANVAS_RESIZE, () => this.scaleExtent[0] = calculateInitialScale(canvas))
+        this.addEventListener(Events.CANVAS_RESIZE, () => this.scaleExtent[0] = calculateInitialScale(canvas))
     }
 
     onZoom () {

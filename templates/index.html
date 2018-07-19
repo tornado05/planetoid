@@ -3,8 +3,8 @@
     <head>
         <title>Planetoid dev</title>
     </head>
-    <body>
-        <canvas id="planetoid" width="800" height="600"></canvas>
+    <body style="text-align:center;">
+        <canvas id="planetoid" width="900" height="900"></canvas>
         <script type="text/javascript" src="main.js" ></script>
         <script type="text/javascript">
         let planetoid = new Planetoid({
@@ -18,6 +18,10 @@
         planetoid.addPlugin(new PlanetoidPlugins.Globe({withGraticule: true}))
         planetoid.addPlugin(new PlanetoidPlugins.LandMap())
         planetoid.addPlugin(new PlanetoidPlugins.Country())
+        planetoid.addPlugin(new PlanetoidPlugins.Pin({ pins:[{
+            lat: 0,
+            lng: 0
+        }] }))
         planetoid.addPlugin(new PlanetoidPlugins.AutoRotate())
         planetoid.addPlugin(new PlanetoidPlugins.Drag())
         planetoid.addPlugin(new PlanetoidPlugins.Zoom())
