@@ -52,6 +52,7 @@ export default class AutoRotatePlugin extends PlanetoidPlugin{
 
     start() {
         this.enabled = true
+        this.shouldRotate = true
     }
 
     stop() {
