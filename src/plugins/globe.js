@@ -1,5 +1,6 @@
 import PlanetoidPlugin from "./plugin"
 import { Events } from "./../events"
+import { calculateInitialScale } from "./../util"
 import { geoGraticule } from "d3-geo"
 
 const DEFAULT_GLOBE_COLOR = "#68d2e8"
@@ -36,7 +37,7 @@ export default class GlobePlugin extends PlanetoidPlugin{
     }
 
     autoScale(canvas, projection) {
-        projection.scale(Math.min(canvas.width, canvas.height) / 2)
+        projection.scale(calculateInitialScale(canvas))
         this.autoScaleGloble = false
     }
 
