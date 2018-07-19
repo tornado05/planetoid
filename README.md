@@ -117,9 +117,10 @@ Plugin draws ping on the globe
 
  #### Methods
   - addPin - adds single ping to map, `.addPin({pin object})`
-  - addPins - adds a list of pins to existing map, `addPins(<{pin object}>)`
-  - removePins - removes all pins from map, `removePins()`
-  - replacePins - replaces existing pins, `replacePins(<{pin object}>)`
+  - addPins - adds a list of pins to existing map, `.addPins(<{pin object}>)`
+  - removePins - removes all pins from map, `.removePins()`
+  - replacePins - replaces existing pins, `.replacePins(<{pin object}>)`
+  - highlightPins - updates pin data to makethem highlighted, `.highlightPins(pin => pin.x === 25, {radius: 3})`
 
 ### zoom
 

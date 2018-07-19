@@ -58,6 +58,14 @@ export default class PinPlugin extends PlanetoidPlugin{
         this.pins = pins
     }
 
+    highlightPins(filter, options = {}) {
+        this.pins.forEach(pin => {
+            if (filter(pin)) {
+                pin.radius = options.radius ? options.radius : pin.radius * 2
+            }
+        })
+    }
+
     draw({context, path}) {
         this.pins.forEach( pin => this._drawPing(pin, context, path))
     }
