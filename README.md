@@ -32,6 +32,7 @@ Overall structure is core part, class `Planetoid`. The module runs draw loop, wh
  - stop - stops draw loop, `.stop()`
  - addEventListener - adds event listener, `.addEventListener(<event name>, <callback>)`
  - notify - triggers event listeners, `.notify(<event object>)`, `{name: <event name>, ...}`
+ - getEventGeoCoordinates - converts event point into coords, `.getEventGeoCoordinates(<event>)`
 
 ### Events:
  - drawLoopStart - fires when draw loop started

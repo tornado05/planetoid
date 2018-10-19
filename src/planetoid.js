@@ -112,5 +112,13 @@ export default class Planetoid {
 
     stop () {
         this.timer.stop()
-    }    
+    }
+    
+    getEventGeoCoordinates (event) {
+        const coords = this.projection.invert([event["x"], event["y"]])
+        return {
+            lat: coords[0],
+            lng: coords[1]
+        }
+    }
 }
