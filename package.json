@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/tornado05/planetoid#readme",
   "dependencies": {
-    "d3": "^5.4.0",
+    "d3": "^7.6.1",
     "topojson": "^3.0.2"
   },
   "devDependencies": {
